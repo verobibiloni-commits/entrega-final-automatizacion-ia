@@ -1,0 +1,792 @@
+{
+    "name": "Leads - envió tras aprobación",
+    "flow": [
+        {
+            "id": 1,
+            "module": "airtable:TriggerWatchRecords",
+            "version": 3,
+            "parameters": {
+                "base": "appcEPSYI8IdQ9e9t",
+                "view": "",
+                "table": "tblsGvuuDTrLorQHw",
+                "config": {
+                    "labelField": "Nombre",
+                    "triggerField": "Ultima modificacion"
+                },
+                "formula": "",
+                "maxRecords": 2,
+                "__IMTCONN__": 10917556,
+                "useColumnId": false
+            },
+            "mapper": {},
+            "metadata": {
+                "designer": {
+                    "x": 0,
+                    "y": 0
+                },
+                "setupValidation": {
+                    "result": {
+                        "valid": true,
+                        "fields": []
+                    },
+                    "version": 1,
+                    "configuration": "69e84e04839dc64a"
+                },
+                "restore": {
+                    "parameters": {
+                        "base": {
+                            "label": "Leads Inmobiliarios — Entrega Final"
+                        },
+                        "view": {
+                            "label": "Empty"
+                        },
+                        "table": {
+                            "label": "Leads"
+                        },
+                        "config": {
+                            "nested": {
+                                "labelField": {
+                                    "label": "Nombre"
+                                },
+                                "triggerField": {
+                                    "label": "Ultima modificacion"
+                                }
+                            }
+                        },
+                        "__IMTCONN__": {
+                            "data": {
+                                "scoped": "true",
+                                "connection": "airtable3"
+                            },
+                            "label": "Veronica's Airtable OAuth connection (User ID: usr6u9m3ZFQ6eLCjG)"
+                        }
+                    }
+                },
+                "parameters": [
+                    {
+                        "name": "__IMTCONN__",
+                        "type": "account:airtable3,airtable2",
+                        "label": "Connection",
+                        "required": true
+                    },
+                    {
+                        "name": "base",
+                        "type": "select",
+                        "label": "Base",
+                        "required": true
+                    },
+                    {
+                        "name": "useColumnId",
+                        "type": "boolean",
+                        "label": "Use Column ID",
+                        "required": true
+                    },
+                    {
+                        "name": "table",
+                        "type": "select",
+                        "label": "Table",
+                        "required": true
+                    },
+                    {
+                        "name": "config",
+                        "spec": [
+                            {
+                                "name": "triggerField",
+                                "type": "select",
+                                "label": "Trigger field",
+                                "required": true
+                            },
+                            {
+                                "name": "triggerField",
+                                "type": "hidden"
+                            },
+                            {
+                                "name": "labelField",
+                                "type": "select",
+                                "label": "Label field",
+                                "required": true
+                            }
+                        ],
+                        "type": "collection",
+                        "label": "Trigger configuration"
+                    },
+                    {
+                        "name": "maxRecords",
+                        "type": "integer",
+                        "label": "Limit",
+                        "required": true
+                    },
+                    {
+                        "name": "view",
+                        "type": "select",
+                        "label": "View"
+                    },
+                    {
+                        "name": "formula",
+                        "type": "text",
+                        "label": "Formula"
+                    }
+                ],
+                "interface": [
+                    {
+                        "name": "id",
+                        "type": "text",
+                        "label": "ID"
+                    },
+                    {
+                        "name": "createdTime",
+                        "type": "date",
+                        "label": "Created Time"
+                    },
+                    {
+                        "name": "Nombre",
+                        "type": "text",
+                        "label": "Nombre"
+                    },
+                    {
+                        "name": "Email",
+                        "type": "text",
+                        "label": "Email"
+                    },
+                    {
+                        "name": "Telefono",
+                        "type": "text",
+                        "label": "Telefono"
+                    },
+                    {
+                        "name": "Mensaje original",
+                        "type": "text",
+                        "label": "Mensaje original",
+                        "multiline": true
+                    },
+                    {
+                        "name": "Propiedad de interés",
+                        "spec": {
+                            "label": "Record ID"
+                        },
+                        "type": "array",
+                        "label": "Propiedad de interés"
+                    },
+                    {
+                        "name": "Urgencia",
+                        "type": "array",
+                        "label": "Urgencia",
+                        "dynamic": true,
+                        "editable": true
+                    },
+                    {
+                        "name": "Respuesta propuesta IA",
+                        "type": "text",
+                        "label": "Respuesta propuesta IA",
+                        "multiline": true
+                    },
+                    {
+                        "name": "Estado",
+                        "type": "text",
+                        "label": "Estado"
+                    },
+                    {
+                        "name": "Fecha de ingreso",
+                        "time": false,
+                        "type": "date",
+                        "label": "Fecha de ingreso"
+                    },
+                    {
+                        "name": "Log de Errores",
+                        "spec": {
+                            "label": "Record ID"
+                        },
+                        "type": "array",
+                        "label": "Log de Errores"
+                    },
+                    {
+                        "name": "Propiedades",
+                        "spec": {
+                            "label": "Record ID"
+                        },
+                        "type": "array",
+                        "label": "Propiedades"
+                    },
+                    {
+                        "name": "Score",
+                        "type": "text",
+                        "label": "Score"
+                    },
+                    {
+                        "name": "Presupuesto",
+                        "type": "text",
+                        "label": "Presupuesto"
+                    },
+                    {
+                        "name": "Clasificación",
+                        "type": "text",
+                        "label": "Clasificación"
+                    },
+                    {
+                        "name": "Ultima modificacion",
+                        "type": "date",
+                        "label": "Ultima modificacion"
+                    }
+                ]
+            }
+        },
+        {
+            "id": 2,
+            "module": "google-email:sendAnEmail",
+            "version": 4,
+            "parameters": {
+                "__IMTCONN__": 11183640
+            },
+            "filter": {
+                "name": "Solo aprobados",
+                "conditions": [
+                    [
+                        {
+                            "a": "{{1.Estado}}",
+                            "b": "Aprobado por humano",
+                            "o": "text:equal"
+                        }
+                    ]
+                ]
+            },
+            "mapper": {
+                "to": [
+                    "{{1.Email}}"
+                ],
+                "content": "{{1.`Respuesta propuesta IA`}}",
+                "subject": "Respuesta a tu consulta - {{1.Nombre}}",
+                "bodyType": "rawHtml"
+            },
+            "metadata": {
+                "designer": {
+                    "x": 300,
+                    "y": 0
+                },
+                "setupValidation": {
+                    "result": {
+                        "valid": true,
+                        "fields": []
+                    },
+                    "version": 1,
+                    "configuration": "1ab3a17c05701444"
+                },
+                "restore": {
+                    "expect": {
+                        "cc": {
+                            "mode": "chose"
+                        },
+                        "to": {
+                            "mode": "chose",
+                            "items": [
+                                null
+                            ]
+                        },
+                        "bcc": {
+                            "mode": "chose"
+                        },
+                        "from": {
+                            "mode": "chose",
+                            "label": "Empty"
+                        },
+                        "bodyType": {
+                            "label": "Raw HTML"
+                        },
+                        "attachments": {
+                            "mode": "chose"
+                        },
+                        "emailHeaders": {
+                            "mode": "chose"
+                        }
+                    },
+                    "parameters": {
+                        "__IMTCONN__": {
+                            "data": {
+                                "scoped": "true",
+                                "connection": "google-email"
+                            },
+                            "label": "Veronica's Gmail connection"
+                        }
+                    }
+                },
+                "parameters": [
+                    {
+                        "name": "__IMTCONN__",
+                        "type": "account:google-email",
+                        "label": "Connection",
+                        "required": true
+                    }
+                ],
+                "expect": [
+                    {
+                        "name": "to",
+                        "spec": {
+                            "name": "value",
+                            "type": "email",
+                            "label": "Recipient email address",
+                            "required": true,
+                            "validate": true
+                        },
+                        "type": "array",
+                        "label": "To",
+                        "required": true
+                    },
+                    {
+                        "name": "subject",
+                        "type": "text",
+                        "label": "Subject"
+                    },
+                    {
+                        "name": "bodyType",
+                        "type": "select",
+                        "label": "Body type",
+                        "required": true,
+                        "validate": {
+                            "enum": [
+                                "rawHtml",
+                                "collection"
+                            ]
+                        }
+                    },
+                    {
+                        "name": "attachments",
+                        "spec": {
+                            "name": "value",
+                            "spec": [
+                                {
+                                    "name": "filename",
+                                    "type": "filename",
+                                    "label": "File name",
+                                    "required": true,
+                                    "semantic": "file:name"
+                                },
+                                {
+                                    "name": "data",
+                                    "type": "buffer",
+                                    "label": "Data",
+                                    "required": true,
+                                    "semantic": "file:data"
+                                }
+                            ],
+                            "type": "collection",
+                            "label": "Attachment"
+                        },
+                        "type": "array",
+                        "label": "Attachments"
+                    },
+                    {
+                        "name": "from",
+                        "type": "select",
+                        "label": "From"
+                    },
+                    {
+                        "name": "cc",
+                        "spec": {
+                            "name": "value",
+                            "type": "email",
+                            "label": "Recipient email address"
+                        },
+                        "type": "array",
+                        "label": "CC recipients"
+                    },
+                    {
+                        "name": "bcc",
+                        "spec": {
+                            "name": "value",
+                            "type": "email",
+                            "label": "Recipient email address"
+                        },
+                        "type": "array",
+                        "label": "BCC recipients"
+                    },
+                    {
+                        "name": "emailHeaders",
+                        "spec": {
+                            "name": "value",
+                            "spec": [
+                                {
+                                    "name": "key",
+                                    "type": "text",
+                                    "label": "Key",
+                                    "required": true
+                                },
+                                {
+                                    "name": "value",
+                                    "type": "text",
+                                    "label": "Value"
+                                }
+                            ],
+                            "type": "collection",
+                            "label": "Email header"
+                        },
+                        "type": "array",
+                        "label": "Additional email headers"
+                    },
+                    {
+                        "name": "content",
+                        "type": "text",
+                        "label": "Content"
+                    }
+                ]
+            }
+        },
+        {
+            "id": 3,
+            "module": "airtable:ActionUpdateRecords",
+            "version": 3,
+            "parameters": {
+                "__IMTCONN__": 10917556
+            },
+            "mapper": {
+                "id": "{{1.id}}",
+                "base": "appcEPSYI8IdQ9e9t",
+                "table": "tblsGvuuDTrLorQHw",
+                "record": {},
+                "typecast": true,
+                "useColumnId": false
+            },
+            "metadata": {
+                "designer": {
+                    "x": 600,
+                    "y": 0
+                },
+                "setupValidation": {
+                    "result": {
+                        "valid": true,
+                        "fields": []
+                    },
+                    "version": 1,
+                    "configuration": "dacf3032724f8402"
+                },
+                "restore": {
+                    "expect": {
+                        "base": {
+                            "label": "Leads Inmobiliarios — Entrega Final"
+                        },
+                        "table": {
+                            "label": "Leads"
+                        },
+                        "record": {
+                            "nested": {
+                                "fld2NtsdhaE9tIMBo": {
+                                    "mode": "chose"
+                                },
+                                "fldCBMgMJ58BdNqp7": {
+                                    "mode": "chose"
+                                },
+                                "fldR2MgcfofxKfaJ0": {
+                                    "mode": "chose"
+                                },
+                                "fldf3j11mgTJbDvcP": {
+                                    "mode": "chose"
+                                },
+                                "fldfOch4ReKdm6oLK": {
+                                    "mode": "chose",
+                                    "label": "Empty"
+                                },
+                                "fldmzhCXLenEEbi8T": {
+                                    "mode": "chose",
+                                    "label": "Empty"
+                                }
+                            }
+                        },
+                        "typecast": {
+                            "mode": "chose"
+                        },
+                        "useColumnId": {
+                            "mode": "chose"
+                        }
+                    },
+                    "parameters": {
+                        "__IMTCONN__": {
+                            "data": {
+                                "scoped": "true",
+                                "connection": "airtable3"
+                            },
+                            "label": "Veronica's Airtable OAuth connection (User ID: usr6u9m3ZFQ6eLCjG)"
+                        }
+                    }
+                },
+                "parameters": [
+                    {
+                        "name": "__IMTCONN__",
+                        "type": "account:airtable3,airtable2",
+                        "label": "Connection",
+                        "required": true
+                    }
+                ],
+                "expect": [
+                    {
+                        "name": "base",
+                        "type": "select",
+                        "label": "Base",
+                        "required": true
+                    },
+                    {
+                        "name": "typecast",
+                        "type": "boolean",
+                        "label": "Smart links",
+                        "required": true
+                    },
+                    {
+                        "name": "useColumnId",
+                        "type": "boolean",
+                        "label": "Use Column ID",
+                        "required": true
+                    },
+                    {
+                        "name": "table",
+                        "type": "select",
+                        "label": "Table",
+                        "required": true
+                    },
+                    {
+                        "name": "id",
+                        "type": "text",
+                        "label": "Record ID",
+                        "required": true
+                    },
+                    {
+                        "name": "record",
+                        "spec": [
+                            {
+                                "name": "fldMcpfI3Q8TAI0sj",
+                                "type": "text",
+                                "label": "Nombre"
+                            },
+                            {
+                                "name": "fld1G1TkcQP2vi8K4",
+                                "type": "text",
+                                "label": "Email"
+                            },
+                            {
+                                "name": "fldMOcGsPdHjqd644",
+                                "type": "text",
+                                "label": "Telefono"
+                            },
+                            {
+                                "name": "fld8xESDtQ8ulaz0p",
+                                "type": "text",
+                                "label": "Mensaje original"
+                            },
+                            {
+                                "name": "fldR2MgcfofxKfaJ0",
+                                "spec": {
+                                    "name": "value",
+                                    "label": "Record ID"
+                                },
+                                "type": "array",
+                                "label": "Propiedad de interés"
+                            },
+                            {
+                                "name": "fldCBMgMJ58BdNqp7",
+                                "spec": {
+                                    "mode": "edit",
+                                    "name": "value",
+                                    "type": "select",
+                                    "label": "Value",
+                                    "dynamic": true,
+                                    "options": [
+                                        {
+                                            "label": "Alta",
+                                            "value": "Alta"
+                                        },
+                                        {
+                                            "label": "Media",
+                                            "value": "Media"
+                                        },
+                                        {
+                                            "label": "Baja",
+                                            "value": "Baja"
+                                        },
+                                        {
+                                            "label": "No especificado",
+                                            "value": "No especificado"
+                                        }
+                                    ],
+                                    "validate": false
+                                },
+                                "type": "array",
+                                "label": "Urgencia"
+                            },
+                            {
+                                "name": "fld20KTsKzOdC26Ht",
+                                "type": "text",
+                                "label": "Respuesta propuesta IA"
+                            },
+                            {
+                                "mode": "edit",
+                                "name": "fldmzhCXLenEEbi8T",
+                                "type": "select",
+                                "label": "Estado"
+                            },
+                            {
+                                "name": "fld3KQLJbfIqdbbc6",
+                                "time": false,
+                                "type": "date",
+                                "label": "Fecha de ingreso"
+                            },
+                            {
+                                "name": "fldf3j11mgTJbDvcP",
+                                "spec": {
+                                    "name": "value",
+                                    "label": "Record ID"
+                                },
+                                "type": "array",
+                                "label": "Log de Errores"
+                            },
+                            {
+                                "name": "fld2NtsdhaE9tIMBo",
+                                "spec": {
+                                    "name": "value",
+                                    "label": "Record ID"
+                                },
+                                "type": "array",
+                                "label": "Propiedades"
+                            },
+                            {
+                                "name": "fldfFWxkkJIPd3C0G",
+                                "type": "text",
+                                "label": "Score"
+                            },
+                            {
+                                "name": "fldPiSBOvGiUZ9X4J",
+                                "type": "text",
+                                "label": "Presupuesto"
+                            },
+                            {
+                                "mode": "edit",
+                                "name": "fldfOch4ReKdm6oLK",
+                                "type": "select",
+                                "label": "Clasificación"
+                            }
+                        ],
+                        "type": "collection",
+                        "label": "Record"
+                    }
+                ],
+                "interface": [
+                    {
+                        "name": "id",
+                        "type": "text",
+                        "label": "ID"
+                    },
+                    {
+                        "name": "createdTime",
+                        "type": "date",
+                        "label": "Created Time"
+                    },
+                    {
+                        "name": "Nombre",
+                        "type": "text",
+                        "label": "Nombre"
+                    },
+                    {
+                        "name": "Email",
+                        "type": "text",
+                        "label": "Email"
+                    },
+                    {
+                        "name": "Telefono",
+                        "type": "text",
+                        "label": "Telefono"
+                    },
+                    {
+                        "name": "Mensaje original",
+                        "type": "text",
+                        "label": "Mensaje original",
+                        "multiline": true
+                    },
+                    {
+                        "name": "Propiedad de interés",
+                        "spec": {
+                            "label": "Record ID"
+                        },
+                        "type": "array",
+                        "label": "Propiedad de interés"
+                    },
+                    {
+                        "name": "Urgencia",
+                        "type": "array",
+                        "label": "Urgencia",
+                        "dynamic": true,
+                        "editable": true
+                    },
+                    {
+                        "name": "Respuesta propuesta IA",
+                        "type": "text",
+                        "label": "Respuesta propuesta IA",
+                        "multiline": true
+                    },
+                    {
+                        "name": "Estado",
+                        "type": "text",
+                        "label": "Estado"
+                    },
+                    {
+                        "name": "Fecha de ingreso",
+                        "time": false,
+                        "type": "date",
+                        "label": "Fecha de ingreso"
+                    },
+                    {
+                        "name": "Log de Errores",
+                        "spec": {
+                            "label": "Record ID"
+                        },
+                        "type": "array",
+                        "label": "Log de Errores"
+                    },
+                    {
+                        "name": "Propiedades",
+                        "spec": {
+                            "label": "Record ID"
+                        },
+                        "type": "array",
+                        "label": "Propiedades"
+                    },
+                    {
+                        "name": "Score",
+                        "type": "text",
+                        "label": "Score"
+                    },
+                    {
+                        "name": "Presupuesto",
+                        "type": "text",
+                        "label": "Presupuesto"
+                    },
+                    {
+                        "name": "Clasificación",
+                        "type": "text",
+                        "label": "Clasificación"
+                    },
+                    {
+                        "name": "Ultima modificacion",
+                        "type": "date",
+                        "label": "Ultima modificacion"
+                    }
+                ]
+            }
+        }
+    ],
+    "metadata": {
+        "instant": false,
+        "version": 1,
+        "scenario": {
+            "roundtrips": 1,
+            "maxErrors": 3,
+            "autoCommit": true,
+            "autoCommitTriggerLast": true,
+            "sequential": false,
+            "slots": null,
+            "confidential": false,
+            "dataloss": false,
+            "dlq": false,
+            "freshVariables": false
+        },
+        "designer": {
+            "orphans": []
+        },
+        "zone": "us2.make.com",
+        "notes": []
+    }
+}
